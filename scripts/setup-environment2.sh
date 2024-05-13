@@ -51,18 +51,7 @@ install_vscode() {
     rm -f packages.microsoft.gpg
 }
 
-# Function to install RabbitMQ using Helm
-install_rabbitmq() {
-    echo "Adding RabbitMQ Helm repository..."
-    helm repo add bitnami https://charts.bitnami.com/bitnami
 
-    echo "Updating Helm repositories..."
-    helm repo update
-
-    echo "Installing RabbitMQ Chart..."
-    # Bitnami package for RabbitMQ
-    helm install my-release oci://registry-1.docker.io/bitnamicharts/rabbitmq
-}
 
 # Perform initial update and upgrade
 update_and_upgrade
@@ -76,8 +65,7 @@ install_dependencies
 # Install Visual Studio Code
 install_vscode
 
-# Install RabbitMQ using Helm
-install_rabbitmq
+
 
 # Install Krew
 (
