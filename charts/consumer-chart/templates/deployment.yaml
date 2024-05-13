@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer-chart
+  labels:
+    app.kubernetes.io/name: consumer-chart
+    helm.sh/chart: consumer-chart-0.1.0
+    app.kubernetes.io/instance: my-release
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: consumer-chart
+      app.kubernetes.io/instance: my-release
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: consumer-chart
+        app.kubernetes.io/instance: my-release
+    spec:
+      containers:
+        - name: consumer-chart
+          image: "consumer-app:latest"  # Update with the actual image name and tag
+          imagePullPolicy: Always  # Update if necessary
+          ports:
+            - name: http
+              containerPort: 80

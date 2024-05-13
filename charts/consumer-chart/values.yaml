@@ -1,0 +1,4 @@
+image:
+  repository: consumer-app
+  tag: latest
+  pullPolicy: Always

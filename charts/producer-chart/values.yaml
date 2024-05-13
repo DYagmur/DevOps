@@ -1,0 +1,3 @@
+rabbitmq:
+  host: my-release-rabbitmq.default.svc.cluster.local
+  port: 5672
