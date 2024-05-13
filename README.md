@@ -47,7 +47,21 @@ This project aims to automate the setup process for establishing communication b
 4. Deploying rabbit mq with helm charts.
 
 
-    ```bash
+5.  Add RabbitMQ Helm repository
+    helm repo add bitnami https://charts.bitnami.com/bitnami
+
+     ```bash
+      helm repo update
+
+6.  Install RabbitMQ Chart
+    Bitnami package for RabbitMQ
+     ```bash
+    helm install my-release oci://registry-1.docker.io/bitnamicharts/rabbitmq
+
+7.  Check this out repo.
     https://github.com/bitnami/charts/tree/main/bitnami/rabbitmq  
 
-    helm install my-release oci://registry-1.docker.io/bitnamicharts/rabbitmq 
+8. Please check the pods health
+    ```bash
+    kubectl get pods
+    
