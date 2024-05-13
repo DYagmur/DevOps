@@ -1,0 +1,20 @@
+Requirements
+Business Requirements
+1. All resources must be managed by a local git repository.
+2. Simple usage instructions should be in the repository as a README file.
+3. Shell scripts must be prepared to install required software and dependencies.
+4. All configurations should be reproducible on the empty Ubuntu virtual machines.
+5. All content should be packed as a single zip archive.
+Product Requirements
+1. The system must allow to applications communicate each other with RabbitMQ.
+2. The system must allow to other applications connect RabbitMQ.
+3. Producer and Consumer applications must be delivered.
+1. Applications could be developed with desired language(go, python or java).
+4. All applications must be deployed to local kubernetes cluster(minikube, kind etc.) with helm
+charts.
+5. Any password or secret should not be revealed during provision.
+Acceptance Criteria
+1. Structure of source code and other files (Scripts, configurations, etc.) should follow the preferred
+naming convention.
+2. Solution should be trackable from git commits.
+3. Partial working solution is also accetable.

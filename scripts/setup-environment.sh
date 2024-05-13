@@ -55,17 +55,6 @@ install_python_pika() {
     echo "Python and Pika installation completed."
 }
 
-# Function to install kubectl
-install_kubectl() {
-    echo "Installing kubectl..."
-    sudo apt install -y apt-transport-https ca-certificates curl
-    curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-    echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list >/dev/null
-    sudo apt-get update
-    sudo apt-get install -y kubectl
-    kubectl version --client --output=yaml
-    echo "kubectl installation completed."
-}
 
 # Function to install kind
 install_kind() {
@@ -95,7 +84,6 @@ install_vim
 install_go
 install_rabbitmq_library
 install_python_pika
-install_kubectl
 install_kind
 install_helm
 
