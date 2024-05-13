@@ -1,4 +1,0 @@
-apiVersion: v2
-name: producer-chart
-description: A Helm chart for deploying the producer application
-version: 0.1.0

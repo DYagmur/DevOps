@@ -6,99 +6,97 @@ update_and_upgrade() {
     sudo apt-get upgrade -y
 }
 
-# Update and upgrade packages initially
+# Function to install curl
+install_curl() {
+    echo "Installing curl..."
+    sudo apt install -y curl
+    echo "curl installation completed."
+}
+
+# Function to install Git
+install_git() {
+    echo "Installing Git..."
+    sudo apt install -y git
+    git --version
+    echo "Git installation completed."
+}
+
+# Function to install Vim
+install_vim() {
+    echo "Installing Vim..."
+    sudo apt install -y vim
+    vim --version
+    echo "Vim installation completed."
+}
+
+# Function to install Go
+install_go() {
+    echo "Installing Go..."
+    wget -q https://golang.org/dl/go1.17.6.linux-amd64.tar.gz
+    sudo tar -C /usr/local -xzf go1.17.6.linux-amd64.tar.gz
+    export PATH=$PATH:/usr/local/go/bin
+    echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
+    source ~/.bashrc
+    echo "Go installation completed."
+}
+
+# Function to install RabbitMQ library for Go
+install_rabbitmq_library() {
+    echo "Installing RabbitMQ library for Go..."
+    go get -u github.com/streadway/amqp
+    echo "RabbitMQ library installation completed."
+}
+
+# Function to install Python and Pika
+install_python_pika() {
+    echo "Installing Python and Pika..."
+    sudo apt install -y python3-pip python3-pika
+    python3 --version
+    echo "Python and Pika installation completed."
+}
+
+# Function to install kubectl
+install_kubectl() {
+    echo "Installing kubectl..."
+    sudo apt install -y apt-transport-https ca-certificates curl
+    curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list >/dev/null
+    sudo apt-get update
+    sudo apt-get install -y kubectl
+    kubectl version --client --output=yaml
+    echo "kubectl installation completed."
+}
+
+# Function to install kind
+install_kind() {
+    echo "Installing kind..."
+    curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
+    chmod +x ./kind
+    sudo mv ./kind /usr/local/bin/kind
+    echo "kind installation completed."
+}
+
+# Function to install helm
+install_helm() {
+    echo "Installing Helm..."
+    curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+    chmod 700 get_helm.sh
+    sudo ./get_helm.sh
+    echo "Helm installation completed."
+}
+
+# Perform initial update and upgrade
 update_and_upgrade
 
-# -----------------------------------
-# Install curl
-# ---------------------------------
+# Install required packages and tools
+install_curl
+install_git
+install_vim
+install_go
+install_rabbitmq_library
+install_python_pika
+install_kubectl
+install_kind
+install_helm
 
-# Update and upgrade packages
-update_and_upgrade
-
-# Install curl
-
-sudo apt install curl
-
-# -----------------------------------
-# Install Git
-# -----------------------------------
-
-# Update and upgrade packages
-update_and_upgrade
-
-# Install Git
-sudo apt install -y git
-git --version
-
-# -----------------------------------
-# Install Vim
-# -----------------------------------
-
-# Update and upgrade packages
-update_and_upgrade
-
-# Install Vim
-sudo apt install -y vim
-vim --version
-
-# -----------------------------------
-# Install Python and Pika for RabbitMQ
-# -----------------------------------
-
-# Update and upgrade packages
-update_and_upgrade
-
-# Install Python and Pika
-sudo apt install -y python3-pip
-sudo apt install -y python3-pika
-python3 --version
-
-# -----------------------------------
-# Install kubectl
-# -----------------------------------
-
-# Update and upgrade packages
-update_and_upgrade
-
-# Install kubectl dependencies
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
-echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
-sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-
-# Check kubectl version
-kubectl version --client --output=yaml
-
-# -----------------------------------
-# Install minikube
-# -----------------------------------
-
-# Update and upgrade packages
-update_and_upgrade
-
-# Install minikube dependencies
-sudo apt install -y apt-transport-https virtualbox virtualbox-ext-pack
-
-# Download and install minikube
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
-
-# Start minikube
-minikube version
-sudo minikube start --driver=virtualbox
-
-# -----------------------------------
-# Install helm
-# -----------------------------------
-
-# Update and upgrade packages
-update_and_upgrade
-
-# Download and install helm
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
-chmod 700 get_helm.sh
-sudo ./get_helm.sh
-
-echo "Dependencies installed successfully."
-
+echo "Setup is not complete. Please run setup-environment2.sh."
