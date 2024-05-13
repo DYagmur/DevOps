@@ -14,7 +14,6 @@ This project aims to automate the setup process for establishing communication b
 - **charts**: Contains Helm charts for deploying applications to Kubernetes.
   - **consumer-chart**: Helm chart for deploying the Consumer application.
   - **producer-chart**: Helm chart for deploying the Producer application.
-- **rabbitmq**: Placeholder directory for RabbitMQ configurations (if any).
 - **scripts**: Contains shell scripts for setting up the development environment and installing dependencies.
   - **setup-environment.sh**: Script for setting up the environment on an Ubuntu machine.
   - **setup-environment2.sh**: Alternate script for environment setup.
