@@ -25,4 +25,19 @@ This project aims to automate the setup process for establishing communication b
 
    ```bash
    git clone https://github.com/DYagmur/DevOps.git
-2. 
+2.Once Kind is installed, we can proceed to create a Kubernetes cluster named rabbitmq.
+
+kind create cluster — name rabbitmq
+
+
+Note that Kind will automatically set context to the created cluster and add a prefix `kind` in front of our cluster name. Hence, our cluster name will be kind-rabbitmq.
+
+3. Check your context with this command:
+
+kubectl config get-contexts
+
+4. deploying rabbit mq with helm charts.
+
+https://github.com/bitnami/charts/tree/main/bitnami/rabbitmq  
+
+helm install my-release oci://registry-1.docker.io/bitnamicharts/rabbitmq 
