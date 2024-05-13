@@ -1,10 +1,24 @@
-# DevOps Project: RabbitMQ Communication Setup
+# Setting up RabbitMQ Communication in a KinD Cluster
 
-Welcome to the DevOps project for setting up RabbitMQ communication between applications using Kubernetes and Helm charts!
+Welcome to our DevOps project focused on establishing RabbitMQ communication between applications using Kubernetes in Docker (KinD) and Helm charts!
 
 ## Project Overview
 
 This project aims to automate the setup process for establishing communication between applications using RabbitMQ as a message broker. It includes applications developed in Go, Helm charts for deployment on Kubernetes, and scripts for environment setup.
+
+## Tasks
+Set up a local Kubernetes cluster using KinD.
+Deploy RabbitMQ to the Kubernetes cluster using Helm charts.
+Develop and deploy a producer application that publishes messages to RabbitMQ.
+Develop and deploy a consumer application that consumes messages from RabbitMQ.
+Ensure that all deployments are done securely without exposing any sensitive information.
+## Technologies Used
+Kubernetes
+Docker
+KinD (Kubernetes in Docker)
+Helm
+RabbitMQ
+Go, Shell
 
 ## Directory Structure
 
