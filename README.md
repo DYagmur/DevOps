@@ -26,7 +26,10 @@ This project aims to automate the setup process for establishing communication b
    ```bash
    git clone https://github.com/DYagmur/DevOps.git
 
-2. Once Kind is installed, we can proceed to create a Kubernetes cluster named rabbitmq.
+2. Navigate the script directory and Run the setup-environment.sh and setup-environment2.sh
+
+
+3. Once Kind is installed, we can proceed to create a Kubernetes cluster named rabbitmq.
 
     ```bash
     kind create cluster — name rabbitmq
