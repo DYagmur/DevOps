@@ -46,5 +46,4 @@ This project aims to automate the setup process for establishing communication b
     ```bash
     https://github.com/bitnami/charts/tree/main/bitnami/rabbitmq  
 
-    ```bash
     helm install my-release oci://registry-1.docker.io/bitnamicharts/rabbitmq 
