@@ -79,5 +79,17 @@ Go, Shell
     kubectl get pods
 
 9. Open 2 different terminal and run the first terminal producer.go and run the second terminal consumer.go 
-    you will see the output which is communicated between each other. 
+    you will see the output which is communicated between each other.
+   
+11. Please use the this command to access RabbitMQ Management UI. 
+    ```bash
+    kubectl port-forward --namespace default svc/my-release-rabbitmq 15672:15672
     
+12. You can access the user and password below command if you don't add custom value.yaml file.
+
+    ```bash
+    echo "Username      : user"
+    echo "Password      : $(kubectl get secret --namespace default my-rabbitmq -o jsonpath="{.data.rabbitmq-password}" | base64 -d)"
+    echo "ErLang Cookie : $(kubectl get secret --namespace default my-rabbitmq -o jsonpath="{.data.rabbitmq-erlang-cookie}" | base64 -d)"
+    
+
