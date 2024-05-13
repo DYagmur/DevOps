@@ -77,4 +77,7 @@ Go, Shell
 8. Please check the pods health
     ```bash
     kubectl get pods
+
+9. Open 2 different terminal and run the first terminal producer.go and run the second terminal consumer.go 
+    you will see the output which is communicated between each other. 
     
